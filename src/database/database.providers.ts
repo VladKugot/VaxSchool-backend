@@ -13,11 +13,11 @@ import { News } from '@/news/entities/news.entity';
 require('dotenv').config();
 
 const { 
-    DB_TEST_HOST,
-    DB_TEST_USERNAME,
-    DB_TEST_PASSWORD,
-    DB_TEST_DATABASE,
-    DB_TEST_PORT 
+    DB_HOST,
+    DB_USERNAME,
+    DB_PASSWORD,
+    DB_DATABASE,
+    DB_PORT 
 } = process.env;
 
 const MYSQL_DIALECT = "mysql";
@@ -30,11 +30,11 @@ export const databaseProviders = [
       useFactory: async () => {
         const sequelize = new Sequelize({
           dialect: MYSQL_DIALECT,
-          host: DB_TEST_HOST,
-          port: DB_TEST_PORT ? +DB_TEST_PORT : 3306, // Should be number
-          username: DB_TEST_USERNAME,
-          password: DB_TEST_PASSWORD,
-          database: DB_TEST_DATABASE,
+          host: DB_HOST,
+          port: DB_PORT ? +DB_PORT : 3306, // Should be number
+          username: DB_USERNAME,
+          password: DB_PASSWORD,
+          database: DB_DATABASE,
       });
   
         /**
